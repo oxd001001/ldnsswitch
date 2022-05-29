@@ -15,4 +15,13 @@ if test -e $RESOLV_FILE
     exit 1
 fi
 
+if grep -Fxq "$DNS_LOCAL_STRING" $RESOLV_FILE
+  then 
+    echo "Disabling local DNS..." 
+    sed -i "/$DNS_LOCAL_STRING/d" $RESOLV_FILE
+  else 
+    echo "Enabling local DNS..."
+    sed -i "/$FILE_START_COMMENT/a $DNS_LOCAL_STRING" $RESOLV_FILE
+fi
+
 exit $?
