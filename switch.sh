@@ -13,7 +13,7 @@ fi
 
 if test -e $RESOLV_FILE
   then
-    RESOLV_FILE_NEW="$RESOLV_FILE.`date +%Y%m%d.%H%M%S`.back"
+    RESOLV_FILE_NEW="$RESOLV_FILE.ld`date +%Y%m%d.%H%M%S`.back"
     echo "Found $RESOLV_FILE, backing up to: $RESOLV_FILE_NEW"
     cp -a $RESOLV_FILE $RESOLV_FILE_NEW
   else
